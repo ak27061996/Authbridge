@@ -1,0 +1,20 @@
+<div>
+    <span>name</span> 
+    <span>email</span>
+    <span>phone</span>
+    <span>status</span>
+    <span>amount</span>
+</div>
+{% for i in data %}
+<div>
+    <span>{{i.name}}</span>
+    <span>{{i.email}}</span>
+    <span>{{i.phone}}</span>
+    <span>{{i.status}}</span>
+    <span>{{i.amount}}</span>
+    <form action="/loan/" method="POST">{% csrf_token%}
+        <input type="hidden" value="{{i.id}}" name="id">
+        <input type="button" value="Approve">
+    </form>
+</div>
+{% endfor %}
